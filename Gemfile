@@ -9,7 +9,7 @@ gem 'rails', github: "rails/rails"
 gem 'arel', github: 'rails/arel'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -25,11 +25,11 @@ gem 'puma', '~> 3.7'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
-
+# Use PostgreSQL as the database for Active Record.
+gem 'pg'
 # Authentication. Read more: https://github.com/lynndylanhurley/devise_token_auth
-# gem 'devise', github: 'plataformatec/devise', branch: 'master'
-gem 'omniauth', '>= 1.0.0'
 gem 'devise_token_auth', github: 'lynndylanhurley/devise_token_auth', branch: 'master'
+gem 'omniauth', '>= 1.0.0'
 # Model Serializer
 gem 'active_model_serializers'
 # RSpec with Swagger. Read more: 
