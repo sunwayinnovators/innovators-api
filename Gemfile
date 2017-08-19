@@ -31,7 +31,7 @@ gem 'pg'
 gem 'devise_token_auth', github: 'lynndylanhurley/devise_token_auth', branch: 'master'
 gem 'omniauth', '>= 1.0.0'
 # Model Serializer
-gem 'active_model_serializers'
+gem 'active_model_serializers', '0.10.0.rc4' # Downgraded for devise_token_auth support
 # RSpec with Swagger. Read more: 
 gem 'rswag'
 # View-Models Decorator. Read more: https://github.com/drapergem/draper
@@ -45,6 +45,8 @@ gem 'friendly_id', '~> 5.1.0'
 # Image Processing. Read more: https://github.com/carrierwaveuploader/carrierwave
 gem 'carrierwave'
 gem 'carrierwave-base64'
+# API versioning. Read more: https://github.com/bploetz/versionist
+gem 'versionist'
 
 
 group :development, :test do

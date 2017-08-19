@@ -15,6 +15,7 @@
 -   acts-as-taggable-on
 -   friendly_id
 -   factory_girl_rails
+-   carrierwave
 
 ### Prerequisites
 

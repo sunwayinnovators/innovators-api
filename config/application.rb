@@ -24,26 +24,10 @@ module InnovatorsApi
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-
-    config.middleware.use Rack::Cors do
-      allow do
-        origins '*'
-        resource '*',
-          :headers => :any,
-          :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
-          :methods => [:get, :post, :options, :delete, :put]
-      end
-    end
     
-    # Disable scaffold generation of extra files
-    config.generators do |g|
-      g.view_specs false
-      g.helper_specs false
-      g.test_framework :rspec,
-        :view_specs    => false,
-        :request_specs => false,
-        :routing_specs => false
-    end
+    # Default mail config, disable rails flash for API mode
+    config.mailer_sender = "support@sunwayinnovators.com"
+    # config.navigational_formats = [:json]
 
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.

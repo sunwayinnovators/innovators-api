@@ -9,6 +9,15 @@ describe 'Events API' do
       produces 'application/json'
       
       response '200', 'event found' do
+        # schema type: :object,
+        #   properties: {
+        #     id: { type: :integer },
+        #     name: { type: :string },
+        #     content: { type: :string }
+        #   },
+        #   required: [ 'id', 'name', 'content' ]
+        # 
+        # let(:id) { Event.create(name: 'foo', content: 'bar').id }
         run_test!
       end
       
