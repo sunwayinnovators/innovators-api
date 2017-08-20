@@ -50,13 +50,25 @@ describe 'Events API' do
       parameter name: :id, :in => :path, :type => :string
 
       response '200', 'event found' do
+
         schema type: :object,
           properties: {
-            id: { type: :integer },
-            name: { type: :string },
-            content: { type: :string }
+            data: {           
+              type: :object,  
+              id: { type: :integer },
+              type: { type: :string },
+              properties: {
+                attributes: { 
+                  type: :object,
+                  name: { type: :string },
+                  content: { type: :string }, 
+                },
+                required: [ 'name', 'content' ]
+              }
+            },
+            required: [ 'id', 'type', 'attributes' ],
           },
-          required: [ 'id', 'name', 'content' ]
+          required: [ 'data' ]
 
         let(:id) { Event.create(name: 'foo', content: 'bar').id }
         run_test!
@@ -68,6 +80,7 @@ describe 'Events API' do
       end
 
       response '406', 'unsupported accept header' do
+        let(:id) { Event.create(name: 'foo', content: 'bar').id }
         let(:'Accept') { 'application/foo' }
         run_test!
       end

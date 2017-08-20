@@ -1,4 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe ImageDecorator do
-end
+# RSpec.describe ImageDecorator do
+# end
