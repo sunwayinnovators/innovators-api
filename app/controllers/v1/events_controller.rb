@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class V1::EventsController < V1::BaseController
-  
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   before_action :set_event, only: [:show, :update, :destroy]
-
+  before_action :check_header, only: [:show, :index]
+  respond_to :json
   # GET /events
   def index
     @events = Event.all
@@ -46,6 +47,15 @@ class V1::EventsController < V1::BaseController
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
+    end
+
+    def record_not_found(error)
+      render json: { error: error.message }, status: :not_found
+    end
+
+    def check_header
+      render nothing: true, status: 406 unless 
+      params[:format] == 'json' || request.headers['Accept'] =~ /json/
     end
 
     # Only allow a trusted parameter "white list" through.

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class V1::EventsController < V1::BaseController
+class V1::GalleriesController < V1::BaseController
   
   before_action :set_gallery, only: [:show, :update, :destroy]
 
