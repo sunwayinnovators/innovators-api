@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class V1::GalleriesController < V1::BaseController
+class Api::V1::EventsController < Api::V1::BaseController
   
   before_action :set_gallery, only: [:show, :update, :destroy]
 
@@ -21,7 +21,7 @@ class V1::GalleriesController < V1::BaseController
     @gallery = Gallery.new(gallery_params)
 
     if @gallery.save
-      render json: @gallery, status: :created, location: v1_gallery_url(@gallery)
+      render json: @gallery, status: :created, location: api_v1_gallery_url(@gallery)
     else
       render json: @gallery.errors, status: :unprocessable_entity
     end

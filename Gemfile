@@ -27,9 +27,13 @@ gem 'rack-cors'
 
 # Use PostgreSQL as the database for Active Record.
 gem 'pg'
-# Authentication. Read more: https://github.com/lynndylanhurley/devise_token_auth
-gem 'devise_token_auth', github: 'lynndylanhurley/devise_token_auth', branch: 'master'
-gem 'omniauth', '>= 1.0.0'
+# Standard devise. Read more: https://github.com/plataformatec/devise
+gem 'devise'
+# Devise JWT. Read more: https://github.com/waiting-for-dev/devise-jwt
+gem 'devise-jwt', github: 'waiting-for-dev/devise-jwt'
+# https://github.com/lynndylanhurley/devise_token_auth
+#gem 'devise_token_auth', github: 'lynndylanhurley/devise_token_auth', branch: 'master'
+#gem 'omniauth', '>= 1.0.0'
 # Model Serializer
 gem 'active_model_serializers', '0.10.0.rc4' # Downgraded for devise_token_auth support
 # RSpec with Swagger. Read more: 
