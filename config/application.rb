@@ -24,14 +24,12 @@ module InnovatorsApi
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    
-    # Default mail config, disable rails flash for API mode
-    config.mailer_sender = "support@sunwayinnovators.com"
-    # config.navigational_formats = [:json]
 
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true # Disabled for Swagger UI
+    
+    config.middleware.use Warden::JWTAuth::Middleware
   end
 end

@@ -1,7 +1,13 @@
-class User < ActiveRecord::Base
-  # Include default devise modules.
-  devise :database_authenticatable, :registerable,
-          :recoverable, :rememberable, :trackable, :validatable,
-          :confirmable, :omniauthable
-  include DeviseTokenAuth::Concerns::User
+class User < ApplicationRecord
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :trackable, 
+         :validatable,
+         :jwt_authenticatable,
+         jwt_revocation_strategy: JWTBlacklist
+         
+  def jwt_payload
+    { 'foo' => 'bar' }
+  end
 end

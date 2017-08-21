@@ -57,6 +57,9 @@ Rails.application.configure do
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.file_watcher = ActiveSupport::FileUpdateChecker
   
+  # For debugging
+  config.log_level = :debug # In any environment initializer, or
+  
   # Disable scaffold generation of extra files
   config.generators do |g|
     g.view_specs false

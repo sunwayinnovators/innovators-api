@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
-class V1::ImagesController < V1::BaseController
+class Api::V1::EventsController < Api::V1::BaseController
 
   before_action :set_gallery
   
   def create
     add_more_images(images_params[:images])
     render json: {}, status: :bad_request unless @gallery.save
-    render json: @gallery, status: :created, location: v1_gallery_url(@gallery)
+    render json: @gallery, status: :created, location: api_v1_gallery_url(@gallery)
   end
   
   def destroy
     remove_image_at_index(params[:id].to_i)
     render json: {}, status: :bad_request unless @gallery.save
-    render json: @gallery, status: :created, location: v1_gallery_url(@gallery)
+    render json: @gallery, status: :created, location: api_v1_gallery_url(@gallery)
   end
 
   private
