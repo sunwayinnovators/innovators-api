@@ -37,9 +37,11 @@ rails server
 
 ## API Reference
 
-Swagger UI is available over [localhost:3000/api-docs](http://localhost:3000/api-docs) during development.
+API documents are available over [localhost:5000/api-docs](http://localhost:5000/api-docs) during development.
 
-To generate new Swagger definitions, use `rake rswag:specs:swaggerize`
+To generate new Swagger API definitions, use `rails rswag:specs:swaggerize`
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/14426cdd2ae2fe5ca53f)
 
 ## Configuration
 
