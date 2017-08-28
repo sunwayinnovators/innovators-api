@@ -12,24 +12,22 @@ Devise.setup do |config|
     # jwt.secret = ENV['DEVISE_JWT_SECRET_KEY']
     jwt.secret = "d8f531be58ad478cc79d072d6c4ea777a0c6ca5fbd9a2194b6fbfcea5f4f122017092a593f31576a0c27d9478f1bd74d336945481d22c7f9af36fd2fa6061c3d"
     jwt.expiration_time = 3600
-    # jwt.dispatch_requests = [
-    #   ['GET', %r{^/api/v1/users/sign_in$}],
-    #   ['POST', %r{^/api/v1/users/sign_in$}]
-    # ]
-    # jwt.revocation_requests = [
-    #   ['DELETE', %r{^/api/v1/users/sign_out$}],
-    #   ['GET', %r{^/api/v1/users/sign_out$}]
-    # ]
-    jwt.request_formats = {
-      user: [:json],
-    }
+    jwt.dispatch_requests = [
+      ['GET', %r{^/api/v1/users/sign_in$}],
+      ['POST', %r{^/api/v1/users/sign_in$}]
+    ]
+    jwt.revocation_requests = [
+      ['DELETE', %r{^/api/v1/users/sign_out$}],
+      ['GET', %r{^/api/v1/users/sign_out$}]
+    ]
+    # jwt.request_formats = { user: [:json] }
   end
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = "hello@sunwayinnovators.com"
+  config.mailer_sender = "swy.event"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -274,11 +272,11 @@ Devise.setup do |config|
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
   #
-  config.warden do |manager|
-    #   manager.intercept_401 = false
+  # config.warden do |manager|
+    # manager.intercept_401 = false
     # manager.strategies.add(:jwt_authenticatable, Devise::JWT::Strategy)
     # manager.default_strategies(scope: :user).unshift :jwt
-  end
+  # end
 
   # If custom strategies exist
   # config.warden do |manager|

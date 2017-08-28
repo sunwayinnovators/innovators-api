@@ -3,6 +3,7 @@
 class Api::V1::EventsController < Api::V1::BaseController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_event, only: [:show, :update, :destroy]
   before_action :check_header, only: [:show, :index]
   respond_to :json
