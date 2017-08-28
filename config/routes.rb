@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
   
   devise_for  :users,
-              :path => '/api/v1/users'
+              :path => '/api/v1/users',
+              defaults: { format: :json }
   
   # API version 1
   api_version(:module => "Api::V1", :path => {:value => "api/v1"}) do
