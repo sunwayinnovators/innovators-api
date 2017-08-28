@@ -13,7 +13,6 @@ Devise.setup do |config|
     jwt.secret = "d8f531be58ad478cc79d072d6c4ea777a0c6ca5fbd9a2194b6fbfcea5f4f122017092a593f31576a0c27d9478f1bd74d336945481d22c7f9af36fd2fa6061c3d"
     jwt.expiration_time = 3600
     jwt.dispatch_requests = [
-      # ['GET', %r{^/api/v1/users/sign_in$}],
       ['POST', %r{^/api/v1/users$}],
       ['POST', %r{^/api/v1/users/sign_in$}]
     ]
@@ -284,7 +283,7 @@ Devise.setup do |config|
   #   manager.strategies.add(:remote_authenticatable, Devise::Strategies::RemoteAuthenticatable)
   #   manager.default_strategies(:scope => :fancy_user).unshift :remote_authenticatable
   # end
-  # config.add_module :remote_authenticatable, :controller => :sessions, :route => { :session => :routes }
+  # config.add_module :remote_authenticatable, :controller => :sessions, 
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
