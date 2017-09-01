@@ -8,6 +8,6 @@ class User < ApplicationRecord
          jwt_revocation_strategy: JWTBlacklist
          
    def jwt_payload
-     { 'foo' => 'bar' }
+     { 'email' => email }
    end
 end
