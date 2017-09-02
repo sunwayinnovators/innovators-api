@@ -52,6 +52,10 @@ gem 'carrierwave-base64'
 # API versioning. Read more: https://github.com/bploetz/versionist
 gem 'versionist'
 
+# Faker. Read more: https://github.com/stympy/faker
+# Need to require manually
+gem 'faker', require: false
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
