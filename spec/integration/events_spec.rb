@@ -16,31 +16,31 @@ describe 'Events API' do
     
   end
 
-  path '/events' do
+  # path '/events' do
     
-    post 'Creates a event' do
-      tags 'Events'
-      consumes 'application/json'
-      parameter name: :event, in: :body, schema: {
-        type: :object,
-        properties: {
-          name: { type: :string },
-          content: { type: :string }
-        },
-        required: [ 'name', 'content' ]
-      }
+  #   post 'Creates a event' do
+  #     tags 'Events'
+  #     consumes 'application/json'
+  #     parameter name: :event, in: :body, schema: {
+  #       type: :object,
+  #       properties: {
+  #         name: { type: :string },
+  #         content: { type: :string }
+  #       },
+  #       required: [ 'name', 'content' ]
+  #     }
 
-      response '201', 'event created' do
-        let(:event) { { name: 'foo', content: 'bar' } }
-        run_test!
-      end
+  #     response '201', 'event created' do
+  #       let(:event) { { name: 'foo', content: 'bar' } }
+  #       run_test!
+  #     end
 
-      response '422', 'invalid request' do
-        let(:event) { { name: 'foo' } }
-        run_test!
-      end
-    end
-  end
+  #     response '422', 'invalid request' do
+  #       let(:event) { { name: 'foo' } }
+  #       run_test!
+  #     end
+  #   end
+  # end
 
   path '/events/{id}' do
 
@@ -55,18 +55,20 @@ describe 'Events API' do
           properties: {
             data: {           
               type: :object,  
-              id: { type: :integer },
-              type: { type: :string },
               properties: {
+                id: { type: :string },
+                type: { type: :string },
                 attributes: { 
                   type: :object,
-                  name: { type: :string },
-                  content: { type: :string }, 
-                },
-                required: [ 'name', 'content' ]
-              }
-            },
-            required: [ 'id', 'type', 'attributes' ],
+                  properties: {
+                    name: { type: :string },
+                    content: { type: :string }, 
+                  },
+                  required: [ 'name', 'content' ]               
+                }
+              },
+              required: [ 'id', 'attributes' ]
+            }
           },
           required: [ 'data' ]
 
