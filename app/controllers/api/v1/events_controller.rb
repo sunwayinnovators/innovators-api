@@ -2,16 +2,16 @@
 
 class Api::V1::EventsController < Api::V1::BaseController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-  
+
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_event, only: [:show, :update, :destroy]
-  before_action :check_header, only: [:show, :index]
+  # before_action :check_header, only: [:show, :index]
   respond_to :json
+
   # GET /events
   def index
-    @events = Event.all
-
-    render json: @events
+    @events = Event.page(params[:page] ? params[:page][:number] : 1)
+    render json: @events, meta: pagination_meta(@events)
   end
 
   # GET /events/1
@@ -22,6 +22,7 @@ class Api::V1::EventsController < Api::V1::BaseController
   # POST /events
   def create
     @event = Event.new(event_params)
+    @event.gallery = params[:gallery]
     @event.tag_list = params[:tag_list]
 
     if @event.save
@@ -56,13 +57,12 @@ class Api::V1::EventsController < Api::V1::BaseController
     end
 
     def check_header
-      render nothing: true, status: 406 unless 
+      render nothing: true, status: 406 unless
       params[:format] == 'json' || request.headers['Accept'] =~ /json/
     end
 
     # Only allow a trusted parameter "white list" through.
     def event_params
-      params.require(:event).permit(:name, :content, :tag_list)
+      params.require(:event).permit(:name, :content, :gallery, :tag_list)
     end
-    
 end

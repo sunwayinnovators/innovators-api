@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2017_09_02_153955) do
+ActiveRecord::Schema.define(version: 2017_09_11_122718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,10 @@ ActiveRecord::Schema.define(version: 2017_09_02_153955) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "images", default: [], array: true
+    t.string "galleriable_type"
+    t.bigint "galleriable_id"
+    t.index ["galleriable_id", "galleriable_type"], name: "index_galleries_on_galleriable_id_and_galleriable_type"
+    t.index ["galleriable_type", "galleriable_id"], name: "index_galleries_on_galleriable_type_and_galleriable_id"
   end
 
   create_table "jwt_blacklists", force: :cascade do |t|

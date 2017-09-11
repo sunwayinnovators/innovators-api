@@ -29,5 +29,13 @@ module InnovatorsApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.after_initialize do
+      Rails.application.routes.default_url_options = {
+        host: ENV['EXTERNAL_HOST'] || 'localhost:5000',
+        protocol: ENV['EXTERNAL_HOST_PROTOCOL'] || 'http'
+      }
+    end
+
   end
 end

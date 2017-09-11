@@ -11,18 +11,18 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
-  
+
   # Innovators
   # MailCatcher to receive email
   config.action_mailer.default_url_options = { :host => 'localhost:5000' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :address => 'localhost', :port => 1025 }
-  
+
   config.active_record.belongs_to_required_by_default = true
-  
+
   # Top-level domain length
   # config.action_dispatch.tld_length = 0
-  
+
   # config.debug_exception_response_format = :api
 
   # Enable/disable caching. By default caching is disabled.
@@ -56,10 +56,10 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.file_watcher = ActiveSupport::FileUpdateChecker
-  
+
   # For debugging
   config.log_level = :debug # In any environment initializer, or
-  
+
   # Disable scaffold generation of extra files
   config.generators do |g|
     g.view_specs false

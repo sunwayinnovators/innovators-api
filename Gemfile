@@ -33,7 +33,7 @@ gem 'devise'
 gem 'devise-jwt', github: 'waiting-for-dev/devise-jwt'
 # Model Serializer
 gem 'active_model_serializers', '0.10.0.rc4' # Downgraded for devise_token_auth support
-# RSpec with Swagger. Read more: 
+# RSpec with Swagger. Read more:
 gem 'rswag'
 # View-Models Decorator. Read more: https://github.com/drapergem/draper
 gem 'draper'
@@ -48,6 +48,8 @@ gem 'carrierwave'
 gem 'carrierwave-base64'
 # API versioning. Read more: https://github.com/bploetz/versionist
 gem 'versionist'
+# Pagination. Read more: https://github.com/mislav/will_paginate
+gem 'will_paginate', '~> 3.1.0'
 
 # Faker. Read more: https://github.com/stympy/faker
 # Need to require manually

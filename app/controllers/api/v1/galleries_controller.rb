@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Api::V1::EventsController < Api::V1::BaseController
-  
+
   before_action :set_gallery, only: [:show, :update, :destroy]
 
   # GET /galleries
@@ -49,6 +49,6 @@ class Api::V1::EventsController < Api::V1::BaseController
 
     # Only allow a trusted parameter "white list" through.
     def gallery_params
-      params.fetch(:gallery).permit({ images: []})
+      params.fetch(:gallery).permit({ images: [] })
     end
 end
